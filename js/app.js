@@ -48,17 +48,30 @@ const team = [member1, member2, member3, member4, member5, member6];
 // }
 // MILESTONE 2:
 // Stampare le stesse informazioni su DOM sotto forma di stringhe
+// const memberList = document.getElementById("members-list");
+// for (let i = 0; i < team.length; i++) {
+//   const member = document.createElement("li");
+//   for (let key in team[i]) {
+//     // BONUS 1 :
+//     // Trasformare la stringa foto in una immagine effettiva
+//     if (key === "thumbnail") {
+//       member.innerHTML += `<img src="img/${team[i][key]}" alt="" />`;
+//     } else {
+//       member.innerHTML += `${team[i][key]} `;
+//     }
+//   }
+//   memberList.append(member);
+// }
+
+// BONUS 2:
+// Organizzare i singoli membri in card/schede
 const memberList = document.getElementById("members-list");
 for (let i = 0; i < team.length; i++) {
   const member = document.createElement("li");
-  for (let key in team[i]) {
-    // BONUS 1 :
-    // Trasformare la stringa foto in una immagine effettiva
-    if (key === "thumbnail") {
-      member.innerHTML += `<img src="img/${team[i][key]}" alt="" />`;
-    } else {
-      member.innerHTML += `${team[i][key]} `;
-    }
-  }
+  member.innerHTML = `<div class="card">
+    <img src="img/${team[i]["thumbnail"]}" alt="thumbnail" />
+    <h3>${team[i]["firstName"]} ${team[i]["lastName"]}</h3>
+    <h4>${team[i]["position"]}</h4>
+  </div>`;
   memberList.append(member);
 }
