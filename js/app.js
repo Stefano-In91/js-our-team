@@ -46,3 +46,13 @@ for (let i = 0; i < team.length; i++) {
     console.log(key, team[i][key]);
   }
 }
+// MILESTONE 2:
+// Stampare le stesse informazioni su DOM sotto forma di stringhe
+const memberList = document.getElementById("members-list");
+for (let i = 0; i < team.length; i++) {
+  const member = document.createElement("li");
+  for (let key in team[i]) {
+    member.innerHTML += `${team[i][key]} `;
+  }
+  memberList.append(member);
+}
