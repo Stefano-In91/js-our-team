@@ -41,18 +41,24 @@ const team = [member1, member2, member3, member4, member5, member6];
 
 // MILESTONE 1:
 // Stampare su console, per ogni membro del team, le informazioni di nome, ruolo e la stringa della foto
-for (let i = 0; i < team.length; i++) {
-  for (let key in team[i]) {
-    console.log(key, team[i][key]);
-  }
-}
+// for (let i = 0; i < team.length; i++) {
+//   for (let key in team[i]) {
+//     console.log(key, team[i][key]);
+//   }
+// }
 // MILESTONE 2:
 // Stampare le stesse informazioni su DOM sotto forma di stringhe
 const memberList = document.getElementById("members-list");
 for (let i = 0; i < team.length; i++) {
   const member = document.createElement("li");
   for (let key in team[i]) {
-    member.innerHTML += `${team[i][key]} `;
+    // BONUS 1 :
+    // Trasformare la stringa foto in una immagine effettiva
+    if (key === "thumbnail") {
+      member.innerHTML += `<img src="img/${team[i][key]}" alt="" />`;
+    } else {
+      member.innerHTML += `${team[i][key]} `;
+    }
   }
   memberList.append(member);
 }
