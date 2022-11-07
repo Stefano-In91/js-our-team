@@ -69,7 +69,7 @@ const memberList = document.getElementById("members-list");
 for (let i = 0; i < team.length; i++) {
   const member = document.createElement("li");
   member.innerHTML = `<div class="card">
-    <img src="img/${team[i]["thumbnail"]}" alt="thumbnail" />
+    <img src="img/${team[i]["thumbnail"]}" alt="thumbnail${team[i]["firstName"]}" />
     <h3>${team[i]["firstName"]} ${team[i]["lastName"]}</h3>
     <h4>${team[i]["position"]}</h4>
   </div>`;
